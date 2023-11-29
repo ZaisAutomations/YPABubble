@@ -15,6 +15,7 @@
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             transform: translate(-50%, -50%);
+            cursor: pointer; /* Add cursor pointer to indicate it's clickable */
         }
 
         .triangle {
@@ -34,7 +35,7 @@
     </style>
 </head>
 <body>
-    <div class="chat-bubble">
+    <div class="chat-bubble" id="chat-bubble">
         <div class="triangle"></div>
         <div class="content">
             Talk with me!
@@ -46,21 +47,32 @@
 
     <!-- Initialize the Botpress Web Chat -->
     <script>
-        window.botpressWebChat.init({
-            "composerPlaceholder": "Start typing here",
-            "botConversationDescription": "Guiding You To Real Estate Success",
-            "botId": "ce5ab1b0-df46-4f0b-ba3d-b377e2fd17f8",
-            "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
-            "messagingUrl": "https://messaging.botpress.cloud",
-            "webhookId": "f7586d7a-b08a-4453-b560-b150d44b4bbe",
-            "clientId": "ce5ab1b0-df46-4f0b-ba3d-b377e2fd17f8",
-            "lazySocket": true,
-            "frontendVersion": "v1",
-            "enableConversationDeletion": true,
-            "useSessionStorage": true,
-            "avatarUrl": "https://i.postimg.cc/GtXVvcfD/Screenshot-2023-11-01-at-11-28-36-am.png",
-            "stylesheet": "https://webchat-styler-css.botpress.app/prod/code/f6e9c242-19b2-4165-9cf4-527185bbdb70/v39027/style.css",
-            "botName": "Your Property Advocates"
+        document.addEventListener("DOMContentLoaded", function () {
+            var chatBubble = document.getElementById("chat-bubble");
+            var chatContainer = document.getElementById("botpress-webchat-container");
+
+            // Add click event listener to the chat container
+            chatContainer.addEventListener("click", function () {
+                // Hide the chat bubble when the chat container is clicked
+                chatBubble.style.display = "none";
+            });
+
+            window.botpressWebChat.init({
+                "composerPlaceholder": "Start typing here",
+                "botConversationDescription": "Guiding You To Real Estate Success",
+                "botId": "ce5ab1b0-df46-4f0b-ba3d-b377e2fd17f8",
+                "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+                "messagingUrl": "https://messaging.botpress.cloud",
+                "webhookId": "f7586d7a-b08a-4453-b560-b150d44b4bbe",
+                "clientId": "ce5ab1b0-df46-4f0b-ba3d-b377e2fd17f8",
+                "lazySocket": true,
+                "frontendVersion": "v1",
+                "enableConversationDeletion": true,
+                "useSessionStorage": true,
+                "avatarUrl": "https://i.postimg.cc/GtXVvcfD/Screenshot-2023-11-01-at-11-28-36-am.png",
+                "stylesheet": "https://webchat-styler-css.botpress.app/prod/code/f6e9c242-19b2-4165-9cf4-527185bbdb70/v39027/style.css",
+                "botName": "Your Property Advocates"
+            });
         });
     </script>
 </body>
