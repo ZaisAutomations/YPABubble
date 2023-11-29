@@ -6,30 +6,23 @@
     <title>Your Property Advocates</title>
     <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
     <style>
-        /* Set the z-index for the Botpress chat container */
-        .bpw-chat-container {
-            z-index: 9999 !important;
+        .chat-bubble {
+            display: none; /* Start with the chat bubble hidden */
+            position: fixed;
+            bottom: 90px;
+            right: 10px; 
+            z-index: 9999; 
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transform: translate(-50%, -50%);
         }
-
-/* Additional styles for the chat bubble */
-.chat-bubble {
-    position: fixed;
-    bottom: 90px;
-    right: 10px;
-    z-index: 9998; /* z-index for the chat bubble */
-    background-color: #f1f1f1;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transform: translate(-50%, -50%);
-    /* pointer-events: none; Remove this line */
-}
-
 
         .triangle {
             position: absolute;
             top: 100%;
-            left: calc(50% - 10px); /* Adjusted left position */
+            left: calc(50% + 20px);
             width: 0;
             height: 0;
             border-left: 10px solid transparent;
@@ -45,6 +38,14 @@
 <body>
     <!-- Add a container where you want the chat to appear -->
     <div id="botpress-webchat-container"></div>
+
+    <!-- Chat bubble HTML -->
+    <div class="chat-bubble" id="chatBubble">
+        <div class="triangle"></div>
+        <div class="content">
+            Talk with me!
+        </div>
+    </div>
 
     <!-- Initialize the Botpress Web Chat -->
     <script>
@@ -64,14 +65,17 @@
             "stylesheet": "https://webchat-styler-css.botpress.app/prod/code/f6e9c242-19b2-4165-9cf4-527185bbdb70/v39027/style.css",
             "botName": "Your Property Advocates"
         });
-    </script>
 
-    <!-- Chat bubble HTML -->
-    <div class="chat-bubble">
-        <div class="triangle"></div>
-        <div class="content">
-            Chat with us!
-        </div>
-    </div>
+        // Delayed display and visibility duration for the chat bubble
+        setTimeout(function() {
+            var chatBubble = document.getElementById('chatBubble');
+            chatBubble.style.display = 'block'; // Show the chat bubble
+
+            // Hide the chat bubble after 5 seconds
+            setTimeout(function() {
+                chatBubble.style.display = 'none';
+            }, 5000);
+        }, 15000);
+    </script>
 </body>
 </html>
