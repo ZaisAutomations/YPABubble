@@ -49,6 +49,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var chatBubble = document.getElementById("chat-bubble");
+            var webChatContainer = document.getElementById("botpress-webchat-container");
 
             chatBubble.addEventListener("click", function () {
                 // Hide the chat bubble when clicked
@@ -73,11 +74,12 @@
                 "openOnLoad": false, // Don't open the chat on page load
             });
 
-            // Add event listener to show the chat bubble when the chat is opened
-            window.addEventListener("message", function (event) {
-                if (event.data.channel === "webchat:open") {
-                    chatBubble.style.display = "block";
-                }
+            // Add event listener to hide the chat bubble when the chatbot widget is clicked
+            var webChatIframe = webChatContainer.querySelector("iframe");
+            webChatIframe.addEventListener("load", function () {
+                webChatIframe.contentWindow.document.body.addEventListener("click", function () {
+                    chatBubble.style.display = "none";
+                });
             });
         });
     </script>
