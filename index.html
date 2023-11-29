@@ -6,11 +6,17 @@
     <title>Your Property Advocates</title>
     <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
     <style>
+        /* Set the z-index for the Botpress chat container */
+        .bpw-chat-container {
+            z-index: 9999 !important;
+        }
+
+        /* Additional styles for the chat bubble */
         .chat-bubble {
             position: fixed;
             bottom: 90px;
-            right: 10px;
-            z-index: 9998;
+            right: 10px; 
+            z-index: 9998; /* z-index for the chat bubble */
             background-color: #f1f1f1;
             padding: 10px;
             border-radius: 10px;
