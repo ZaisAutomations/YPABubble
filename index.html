@@ -31,10 +31,6 @@
         .content {
             color: black;
         }
-
-        #botpress-webchat-container {
-            z-index: 10000; /* Set a higher z-index */
-        }
     </style>
 </head>
 <body>
@@ -66,6 +62,12 @@
             "stylesheet": "https://webchat-styler-css.botpress.app/prod/code/f6e9c242-19b2-4165-9cf4-527185bbdb70/v39027/style.css",
             "botName": "Your Property Advocates"
         });
+
+        // Set a higher z-index for the chat container after initialization
+        var chatContainer = document.getElementById('botpress-webchat-container');
+        if (chatContainer) {
+            chatContainer.style.zIndex = '10000';
+        }
     </script>
 </body>
 </html>
