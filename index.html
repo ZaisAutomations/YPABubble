@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Property Advocates</title>
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+
+    <style>
+        .chat-bubble {
+            position: fixed;
+            bottom: 90px;
+            right: 10px; 
+            z-index: 9999; 
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transform: translate(-50%, -50%);
+        }
+
+        .triangle {
+            position: absolute;
+            top: 100%;
+            left: calc(50% + 20px);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #f1f1f1;
+        }
+
+        .content {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-bubble">
+        <div class="triangle"></div>
+        <div class="content">
+            Talk with me!
+        </div>
+    </div>
+
+    <!-- Add a container where you want the chat to appear -->
+    <div id="botpress-webchat-container"></div>
+
+    <!-- Initialize the Botpress Web Chat -->
+    <script>
+        window.botpressWebChat.init({
+            "composerPlaceholder": "Start typing here",
+            "botConversationDescription": "Guiding You To Real Estate Success",
+            "botId": "ce5ab1b0-df46-4f0b-ba3d-b377e2fd17f8",
+            "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+            "messagingUrl": "https://messaging.botpress.cloud",
+            "webhookId": "f7586d7a-b08a-4453-b560-b150d44b4bbe",
+            "clientId": "ce5ab1b0-df46-4f0b-ba3d-b377e2fd17f8",
+            "lazySocket": true,
+            "frontendVersion": "v1",
+            "enableConversationDeletion": true,
+            "useSessionStorage": true,
+            "avatarUrl": "https://i.postimg.cc/GtXVvcfD/Screenshot-2023-11-01-at-11-28-36-am.png",
+            "stylesheet": "https://webchat-styler-css.botpress.app/prod/code/f6e9c242-19b2-4165-9cf4-527185bbdb70/v39027/style.css",
+            "botName": "Your Property Advocates"
+        });
+    </script>
+</body>
+</html>
