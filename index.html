@@ -74,12 +74,12 @@
                 "openOnLoad": false, // Don't open the chat on page load
             });
 
-            // Add event listener to hide the chat bubble when the chatbot widget is clicked
-            var webChatIframe = webChatContainer.querySelector("iframe");
-            webChatIframe.addEventListener("load", function () {
-                webChatIframe.contentWindow.document.body.addEventListener("click", function () {
+            // Add event listener to hide the chat bubble when the Botpress Web Chat iframe is clicked
+            document.addEventListener("click", function (event) {
+                // Check if the clicked element is outside the chat bubble and the web chat container
+                if (!webChatContainer.contains(event.target) && !chatBubble.contains(event.target)) {
                     chatBubble.style.display = "none";
-                });
+                }
             });
         });
     </script>
