@@ -3,6 +3,54 @@
 <head>
     <title>Your Property Advocates</title>
     <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+
+    <!-- Add the style directly in the head section -->
+    <style>
+        /* Additional styles for the chat bubble */
+        .chat-bubble {
+            position: fixed;
+            bottom: 90px;
+            right: 1px; 
+            z-index: 9998;  /* Updated z-index for the chat bubble */
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transform: translate(-50%, -50%);
+        }
+
+        .triangle {
+            position: absolute;
+            top: 100%;
+            left: calc(50% + 20px);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #f1f1f1;
+        }
+
+        .content {
+            color: black;
+        }
+
+        /* Adding z-index to .bpw-chat-container */
+        .bpw-chat-container {
+            z-index: 9999;  /* Added z-index for .bpw-chat-container */
+        }
+
+        /* This CSS rule sets the default font size of the entire document */
+        html {
+            .bpw-floating-button::before {
+                background: url("https://i.postimg.cc/bvjPyvfY/Screenshot-2023-11-01-at-11-28-36-am-modified-1.png");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                height: 54px !important;
+                width: 54px !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Add a container where you want the chat to appear -->
