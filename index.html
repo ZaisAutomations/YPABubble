@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Property Advocates</title>
     <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-
-    <!-- Add the style directly in the head section -->
     <style>
-        /* Additional styles for the chat bubble */
         .chat-bubble {
             position: fixed;
             bottom: 90px;
-            right: 1px; 
-            z-index: 9998;  /* Updated z-index for the chat bubble */
+            right: 10px;
+            z-index: 9999;
             background-color: #f1f1f1;
             padding: 10px;
             border-radius: 10px;
@@ -22,7 +21,7 @@
         .triangle {
             position: absolute;
             top: 100%;
-            left: calc(50% + 20px);
+            left: calc(50% - 10px); /* Adjusted left position */
             width: 0;
             height: 0;
             border-left: 10px solid transparent;
@@ -32,23 +31,6 @@
 
         .content {
             color: black;
-        }
-
-        /* Adding z-index to .bpw-chat-container */
-        .bpw-chat-container {
-            z-index: 9999;  /* Added z-index for .bpw-chat-container */
-        }
-
-        /* This CSS rule sets the default font size of the entire document */
-        html {
-            .bpw-floating-button::before {
-                background: url("https://i.postimg.cc/bvjPyvfY/Screenshot-2023-11-01-at-11-28-36-am-modified-1.png");
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: contain;
-                height: 54px !important;
-                width: 54px !important;
-            }
         }
     </style>
 </head>
@@ -71,8 +53,17 @@
             "enableConversationDeletion": true,
             "useSessionStorage": true,
             "avatarUrl": "https://i.postimg.cc/GtXVvcfD/Screenshot-2023-11-01-at-11-28-36-am.png",
+            "stylesheet": "https://webchat-styler-css.botpress.app/prod/code/f6e9c242-19b2-4165-9cf4-527185bbdb70/v39027/style.css",
             "botName": "Your Property Advocates"
         });
     </script>
+
+    <!-- Chat bubble HTML -->
+    <div class="chat-bubble">
+        <div class="triangle"></div>
+        <div class="content">
+            Chat with us!
+        </div>
+    </div>
 </body>
 </html>
